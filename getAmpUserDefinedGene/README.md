@@ -3,8 +3,8 @@
 
 you need to specify the Path, 'called.Rds' file, and file with Target Genes
 
-* install.packages("QDNAseq")
-* install.packages("Biobase")
+install.packages("QDNAseq")
+install.packages("Biobase")
 
 ## getAmpUserDefinedGene
 The *getGeneCalls* function will let the user extract all the Calls from a QDNAseq '.Rds' file with the list of Target Genes as a template.
@@ -12,9 +12,7 @@ The *getGeneCalls* function will let the user extract all the Calls from a QDNAs
 The input for *getGeneCalls* is the following:
 * calledData = QDNAseq called.Rds file
 * geneList = data frame with the following columns
-** name
-** chromosome
-** start
+** name, hromosome, start
 
 Data will be returned from the function as a list containing the following:
 * x$sampleNames : contains the sampleNames as a list
