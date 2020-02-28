@@ -25,7 +25,7 @@ getGeneCalls <- function(calledData, geneList){
   if(sum(header %in% colnames(geneList)) != 3){
     stop("GeneList does not contain the required columns.\n  * name\n  * chromosome\n  * start\n\n ")
   }
-  nSamples <- length(sampleNames(data))
+  nSamples <- length(sampleNames(calledData))
   results.feature <- matrix(NA, nrow = nrow(geneList), ncol = 3)
   colnames(results.feature) <- c("Chromosome","Start", "End")
   results.calls <- matrix(NA, nrow = nrow(geneList), ncol = nSamples)
@@ -58,7 +58,7 @@ getAmpUserDefinedGene <- function(calledData, geneList, out, col = "green"){
                         probamp = geneData$probamp[,i])
     
     output.file <- file.path(out, paste(geneData$sampleNames[i], "_results.csv", sep = ""))
-    write.table(x = sampleData, file = output.file, quote = FALSgenE, sep = ";", row.names = FALSE)
+    write.table(x = sampleData, file = output.file, quote = FALSE, sep = ";", row.names = FALSE)
     if(TRUE %in% sel == TRUE){
       cat(as.character(Sys.time()), ": Plotting amplifications.\n")
       for(g in 1:nrow(geneData$genes)){
