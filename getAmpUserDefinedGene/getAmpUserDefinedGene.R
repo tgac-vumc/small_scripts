@@ -4,8 +4,8 @@ library(Biobase)
 
 #### PATH AND FILE NAMES ----
 input.path <- "user defined input path"
-called.file <- file.path(path,"30kbp-called.rds" )
-gene.file <- file.path(pad, "target_genes.csv")
+called.file <- file.path(input.path,"30kbp-called.rds" )
+gene.file <- file.path(input.path, "target_genes.csv")
 output.path <- "user defined output path"
 
 ### LOAD DATA ----
