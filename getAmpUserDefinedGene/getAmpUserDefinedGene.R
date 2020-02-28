@@ -81,6 +81,6 @@ getAmpUserDefinedGene <- function(calledData, geneList, out, col = "green"){
 }
 
 ### RUN THE CODE ----
-getAmpUserDefinedGene(calledData = data, geneList = geneList, out = pad, col = "lightblue")
+getAmpUserDefinedGene(calledData = data, geneList = geneList, out = output.path, col = "lightblue")
 
 ### END ----
