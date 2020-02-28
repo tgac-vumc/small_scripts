@@ -49,6 +49,7 @@ getGeneCalls <- function(calledData, geneList){
 getAmpUserDefinedGene <- function(calledData, geneList, out, col = "green"){
   cat(as.character(Sys.time()), ": Extracting gene data.\n")
   geneData <- getGeneCalls(calledData = data, geneList = geneList)
+  nSamples <- length(sampleNames(calledData))
   for(i in 1:nSamples){
     cat(as.character(Sys.time()), ": Processing sample -", sampleNames(data)[i],"\n")
     sel <- geneData$calls[,i] %in% 2
