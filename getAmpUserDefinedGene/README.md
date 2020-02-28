@@ -41,17 +41,17 @@ load the 3 functions into R.
 
 ## PIPELINE EXAMPLE
 ### set paths and file locations
-input.path <- "user defined input path"
-called.file <- file.path(path,"30kbp-called.rds" )
-gene.file <- file.path(pad, "target_genes.csv")
-output.path <- "user defined output path"
+* input.path <- "user defined input path"
+* called.file <- file.path(path,"30kbp-called.rds" )
+* gene.file <- file.path(pad, "target_genes.csv")
+* output.path <- "user defined output path"
 
 ### load the data 
-data <- readRDS(file = called.file)
-geneList <- read.table(file = gene.file, header = TRUE, sep = ";", skip = 0)
+* data <- readRDS(file = called.file)
+* geneList <- read.table(file = gene.file, header = TRUE, sep = ";", skip = 0)
 
 ### run the function
-getAmpUserDefinedGene(calledData = data, geneList = geneList, out = output.path, col = "lightblue")
+* getAmpUserDefinedGene(calledData = data, geneList = geneList, out = output.path, col = "lightblue")
 
 ## Citation
 Not available
