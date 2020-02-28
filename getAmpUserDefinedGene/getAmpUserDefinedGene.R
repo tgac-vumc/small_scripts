@@ -3,19 +3,14 @@ library(QDNAseq)
 library(Biobase)
 
 #### PATH AND FILE NAMES ----
-pad <- "\\\\vumc.nl\\home$\\store4ever\\h.vanessen\\h.vanessen\\Desktop\\UMCG"
-file <- file.path(pad,"CNP20-003_30kbp-called.rds" )
-manifest <- file.path(pad, "target_genes.csv")
-
-#### PATH AND FILE NAMES ----
 input.path <- "user defined input path"
 called.file <- file.path(path,"30kbp-called.rds" )
 gene.file <- file.path(pad, "target_genes.csv")
 output.path <- "user defined output path"
 
 ### LOAD DATA ----
-data <- readRDS(file = file)
-geneList <- read.table(file = manifest, header = TRUE, sep = ";", skip = 0)
+data <- readRDS(file = called.file)
+geneList <- read.table(file = gene.file, header = TRUE, sep = ";", skip = 0)
 
 ### FUNCTIONS ----
 .getFeature <- function(calledData, chromosome, position){
