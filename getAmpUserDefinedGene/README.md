@@ -31,8 +31,8 @@ The input for *getAmpUserDefinedGene* is the following:
 * col = user define colour of the Amplification calls
 
 ### Installation
-library(QDNAseq)
-library(Biobase)
+* library(QDNAseq)
+* library(Biobase)
 
 load the 3 functions into R.
 * .getFeature
