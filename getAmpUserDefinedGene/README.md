@@ -1,5 +1,5 @@
-# getAmpUserDefinedGene (Get Amplification of User Define Gene)
-# Hendrik F. van Essen (2020)
+## getAmpUserDefinedGene (Get Amplification of User Define Gene)
+### Hendrik F. van Essen (2020)
 
 # you need to specify the Path, 'called.Rds' file, and file with Target Genes
 
