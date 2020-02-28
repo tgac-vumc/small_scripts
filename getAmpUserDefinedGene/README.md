@@ -11,8 +11,7 @@ The *getGeneCalls* function will let the user extract all the Calls from a QDNAs
 
 The input for *getGeneCalls* is the following:
 * calledData = QDNAseq called.Rds file
-* geneList = data frame with the following columns
-** name, hromosome, start
+* geneList = data frame with the columns 'name, chromosome, start'
 
 Data will be returned from the function as a list containing the following:
 * x$sampleNames : contains the sampleNames as a list
