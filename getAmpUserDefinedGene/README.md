@@ -1,27 +1,27 @@
 ## getAmpUserDefinedGene (Get Amplification of User Define Gene)
 ### Hendrik F. van Essen (2020)
 
-# you need to specify the Path, 'called.Rds' file, and file with Target Genes
+you need to specify the Path, 'called.Rds' file, and file with Target Genes
 
-# install.packages("QDNAseq")
-# install.packages("Biobase")
+### install.packages("QDNAseq")
+### install.packages("Biobase")
 
-### getAmpUserDefinedGene
+## getAmpUserDefinedGene
 The *getGeneCalls* function will let the user extract all the Calls from a QDNAseq '.Rds' file with the list of Target Genes as a template.
 
 The input for *getGeneCalls* is the following:
-# calledData = QDNAseq called.Rds file
-# geneList = data frame with the following columns
-## name
-## chromosome
-## start
+* calledData = QDNAseq called.Rds file
+* geneList = data frame with the following columns
+** name
+** chromosome
+** start
 
 Data will be returned from the function as a list containing the following:
-# x$sampleNames : contains the sampleNames as a list
-# x$genes : contains the data frame provide by the user
-# x$features : contains a data frame of the features from the QDNAseq object where the genes are located
-# x$calls : contains a data frame of the calls for each sample for the provided target genes
-# x$probamp : contains a data frame of the probablity store for the Amplification Calls for each sample for the provided target genes
+* x$sampleNames : contains the sampleNames as a list
+* x$genes : contains the data frame provide by the user
+* x$features : contains a data frame of the features from the QDNAseq object where the genes are located
+* x$calls : contains a data frame of the calls for each sample for the provided target genes
+* x$probamp : contains a data frame of the probablity store for the Amplification Calls for each sample for the provided target genes
 
 The function *getAmpUserDefinedGene* will provide the following for each sample in the data provided.
 # .csv file with target genes, calls, probamp
