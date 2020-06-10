@@ -14,9 +14,9 @@ geneList <- read.table(file = gene.file, header = TRUE, sep = ";", skip = 0)
 
 ### FUNCTIONS ----
 .getFeature <- function(calledData, chromosome, position){
-  x <- data@featureData@data$chromosome == chromosome & 
-             position >= data@featureData@data$start &
-             position <= data@featureData@data$end 
+  x <- calledData@featureData@data$chromosome == chromosome & 
+             position >= calledData@featureData@data$start &
+             position <= calledData@featureData@data$end 
   return(x)
 }
 getGeneCalls <- function(calledData, geneList){
@@ -29,17 +29,17 @@ getGeneCalls <- function(calledData, geneList){
   results.feature <- matrix(NA, nrow = nrow(geneList), ncol = 3)
   colnames(results.feature) <- c("Chromosome","Start", "End")
   results.calls <- matrix(NA, nrow = nrow(geneList), ncol = nSamples)
-  colnames(results.calls) <- sampleNames(data)
+  colnames(results.calls) <- sampleNames(calledData)
   results.probamp <- results.calls
   sel <- rep(FALSE, nrow(geneList))
   for(gene in 1:nrow(geneList)){
-    feature <- .getFeature(calledData = data, chromosome = geneList$chromosome[gene], position = geneList$start[gene])
-    results.feature[gene,] <- unlist(data@featureData@data[feature,][1:3])
-    results.calls[gene,] <- data@assayData$calls[feature,]
-    results.probamp[gene,] <- data@assayData$probamp[feature,]
+    feature <- .getFeature(calledData = calledData, chromosome = geneList$chromosome[gene], position = geneList$start[gene])
+    results.feature[gene,] <- unlist(calledData@featureData@data[feature,][1:3])
+    results.calls[gene,] <- calledData@assayData$calls[feature,]
+    results.probamp[gene,] <- calledData@assayData$probamp[feature,]
   }
   rownames(results.feature) <- rownames(results.calls) <- rownames(results.probamp) <- geneList$name
-  results <- list(sampleNames = sampleNames(data),
+  results <- list(sampleNames = sampleNames(calledData),
                   genes = geneList,
                   features = results.feature,
                   calls = results.calls,
@@ -48,10 +48,10 @@ getGeneCalls <- function(calledData, geneList){
 }
 getAmpUserDefinedGene <- function(calledData, geneList, out, col = "green"){
   cat(as.character(Sys.time()), ": Extracting gene data.\n")
-  geneData <- getGeneCalls(calledData = data, geneList = geneList)
+  geneData <- getGeneCalls(calledData = calledData, geneList = geneList)
   nSamples <- length(sampleNames(calledData))
   for(i in 1:nSamples){
-    cat(as.character(Sys.time()), ": Processing sample -", sampleNames(data)[i],"\n")
+    cat(as.character(Sys.time()), ": Processing sample -", sampleNames(calledData)[i],"\n")
     sel <- geneData$calls[,i] %in% 2
     sampleData <- cbind(geneData$genes[,1:2],
                         geneData$features,
